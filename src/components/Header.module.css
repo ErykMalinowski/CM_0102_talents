@@ -1,0 +1,9 @@
+.title {
+    font-family: "HandelGothic";
+    font-size: 40px;
+    font-weight: 100;
+    text-align: center;
+    color: var(--white);
+    background-color: red;
+    padding: 20px;
+}

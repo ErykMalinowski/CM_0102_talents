@@ -1,13 +1,35 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "HandelGothic";
+  src: local("HandelGothic"), url("./fonts/HANDGOTN.TTF") format("truetype");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "ErasDemi";
+  src: local("ErasDemi"), url("./fonts/erasdemi.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue-cursor: rgb(132, 255, 255);
+  --blue-gradient: rgb(0, 0, 123);
+  --gray-btn: rgb(132, 130, 132);
+  --green-dark: rgb(0, 56, 0);
+  --green-light: rgb(0, 65, 0);
+  --green-text: rgb(0, 195, 0);
+  --orange: rgb(255, 130, 0);
+  --white: rgb(231, 227, 231);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "ErasDemi", Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background-image: linear-gradient(var(--blue-gradient), black);
+  overflow-x: hidden;
 }
