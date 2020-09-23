@@ -1,5 +1,13 @@
 .container {
-    max-width: 1000px;
-    color: white;
-    margin: 0 auto;
+    height: 100%;
+    padding: 20px;
+}
+
+.subtitle {
+    font-size: 28px;
+    text-align: center;
+    color: yellow;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
 }

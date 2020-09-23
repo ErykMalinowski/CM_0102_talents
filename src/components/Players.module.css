@@ -1,0 +1,10 @@
+.players {
+    list-style-type: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.player {
+    font-size: 28px;
+    color: var(--white);
+}
