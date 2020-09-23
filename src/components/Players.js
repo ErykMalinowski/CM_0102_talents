@@ -12,6 +12,7 @@ export default function Players() {
 
   useEffect(() => {
     db.collection("talents")
+      .orderBy("name")
       .get()
       .then((response) => {
         const talents = [];
@@ -32,16 +33,15 @@ export default function Players() {
 
   return (
     <ul className={styles.players}>
-      {error ? <p>Ops, there is an error :(</p> : null}
+      {/* {error ? <p>Ops, there is an error :(</p> : null} */}
       {loading ? (
         <li className={styles.player}>Loading...</li>
       ) : (
         players.map((player) => (
           <li key={player.id} className={styles.player}>
-            {player.surname}
-            {player.name !== "" && `, ${player.name}`}
-            {player.club}
-            {player.position}
+            <div className={styles.player__name}>{player.name}</div>
+            <div className={styles.player__club}>{player.club}</div>
+            <div className={styles.player__position}>{player.position}</div>
           </li>
         ))
       )}
