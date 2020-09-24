@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import styles from "./Container.module.css";
 import PlayersContext from "../contexts/PlayersContext";
 
@@ -6,19 +6,21 @@ export default function Container() {
   const data = useContext(PlayersContext);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  useEffect(() => {
-    const results = data.players.filter(
-      (player) =>
-        player.name.toLowerCase().includes(searchTerm) ||
-        player.club.toLowerCase().includes(searchTerm)
-    );
-    setSearchResults(results);
-  }, [searchTerm]);
+  const searchResults = useMemo(
+    () =>
+      searchTerm === ""
+        ? data.players
+        : data.players.filter(
+            (player) =>
+              player.name.toLowerCase().includes(searchTerm) ||
+              player.club.toLowerCase().includes(searchTerm)
+          ),
+    [data, searchTerm]
+  );
 
   return (
     <div className={styles.container}>
