@@ -16,6 +16,10 @@
     width: 50%;
 }
 
+.player__name:hover {
+    cursor: pointer;
+}
+
 .player__club {
     width: 30%;
     font-size: 18px;
