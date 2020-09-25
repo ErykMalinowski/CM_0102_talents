@@ -1,0 +1,58 @@
+.form {
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 1000px;
+    height: 100vh;
+    color: white;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.form__title {
+    font-size: 28px;
+    text-align: center;
+    color: yellow;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form label {
+    display: block;
+    font-size: 20px;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.form label:last-of-type {
+    margin-bottom: 50px;
+}
+
+.form input {
+    font-family: "ErasDemi";
+    font-size: 20px;
+    color: var(--blue-cursor);
+    background-color: transparent;
+    padding: 0 10px;
+    border: none;
+}
+
+.form input:hover {
+    cursor: pointer;
+}
+
+.form input:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.form input[type='submit'] {
+    width: 100%;
+    color: var(--white);
+    background-color: var(--gray-btn);
+    padding: 10px 0;
+}

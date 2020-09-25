@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import styles from "./Main.module.css";
 import Container from "./Container";
 import PlayersContext from "../contexts/PlayersContext";
