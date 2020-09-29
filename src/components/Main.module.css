@@ -3,9 +3,33 @@
     /* background-attachment: fixed; */
     background-repeat: no-repeat;
     background-size: cover;
-    max-width: 1200px;
-    height: 100vh;
+    max-width: 1140px;
+    min-height: 100vh;
     /* temporarily */
     color: white;
     margin: 0 auto;
+}
+
+@media screen and (max-width: 1199px) {
+    .main {
+        max-width: 960px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .main {
+        max-width: 720px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .main {
+        max-width: 540px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .main {
+        max-width: 100%;
+    }
 }

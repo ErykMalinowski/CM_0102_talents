@@ -11,10 +11,13 @@
 }
 
 .searchbar span {
+    display: inline-block;
+    width: 200px;
     font-size: 18px;
+    text-align: center;
     color: var(--white);
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 5px 50px;
+    padding: 5px 0;
     margin-right: 2px;
 }
 
@@ -37,7 +40,7 @@
     box-shadow: none;
 }
 
-.searchbar .filters {
+.searchbar .reset {
     font-family: "ErasDemi";
     font-size: 16px;
     color: var(--white);
@@ -46,14 +49,49 @@
     border: none;
 }
 
-.searchbar .filters:hover {
+.searchbar .reset:hover {
     cursor: pointer;
 }
 
-.searchbar .filters:focus {
+.searchbar .reset:focus {
     outline: none;
     border: none;
     box-shadow: none;
+}
+
+.filter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filter span {
+    display: inline-block;
+    width: 200px;
+    font-size: 18px;
+    text-align: center;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 0;
+    margin-right: 2px;
+}
+
+.filter input {
+    display: none;
+}
+
+.filter input:checked+label {
+    border: 1px solid yellow;
+}
+
+.filter label {
+    font-family: "ErasDemi";
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    margin-right: 2px;
+    border: none;
 }
 
 .subtitle {
@@ -80,15 +118,23 @@
 }
 
 .player__name {
-    width: 50%;
+    width: 40%;
+    color: var(--white);
+    text-decoration: none;
 }
 
 .player__name:hover {
     cursor: pointer;
 }
 
+.player__nationality {
+    width: 15%;
+    font-size: 18px;
+    color: var(--blue-cursor);
+}
+
 .player__club {
-    width: 30%;
+    width: 20%;
     font-size: 18px;
     color: yellow;
 }
@@ -97,4 +143,131 @@
     width: 20%;
     font-size: 18px;
     color: var(--orange);
+}
+
+.player__age {
+    width: 5%;
+    font-size: 18px;
+    color: var(--white);
+}
+
+.player__name {
+    padding-right: 5px;
+}
+
+.player__nationality,
+.player__club,
+.player__position {
+    padding: 0 5px;
+}
+
+.player__age {
+    padding-left: 5px;
+}
+
+@media screen and (max-width: 1199px) {
+    .player__name {
+        width: 40%;
+    }
+
+    .player__nationality {
+        display: none;
+    }
+
+    .player__club {
+        width: 25%;
+    }
+
+    .player__position {
+        width: 25%;
+    }
+
+    .player__age {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .player__name {
+        width: 50%;
+    }
+
+    .player__club {
+        display: none;
+    }
+
+    .player__position {
+        width: 35%;
+    }
+
+    .player__age {
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .searchbar {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .searchbar .reset {
+        order: -1;
+        margin-bottom: 10px;
+    }
+
+    .player__name {
+        width: 75%;
+    }
+
+    .player__position {
+        display: none;
+    }
+
+    .player__age {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .searchbar .search {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .searchbar span {
+        margin-bottom: 10px;
+    }
+
+    .searchbar input {
+        padding: 5px 25px;
+    }
+
+    .filter {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .filter span {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+    }
+
+    .player {
+        font-size: 24px;
+    }
+
+    .player__name {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .player__age {
+        display: none;
+    }
 }
