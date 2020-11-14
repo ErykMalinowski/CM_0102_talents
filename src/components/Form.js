@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Form.module.css";
 
-import firebase from "../firebase/firebase";
+import {db} from "../firebase/firebase";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -12,8 +12,6 @@ export default function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    const db = firebase.firestore();
 
     db.collection("talents")
       .add({

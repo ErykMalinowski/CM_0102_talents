@@ -1,4 +1,11 @@
-.title {
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header .title {
     font-family: "HandelGothic";
     font-size: 44px;
     font-weight: 100;
@@ -8,24 +15,24 @@
     padding: 25px;
 }
 
-.title--mobile {
+.header .title--mobile {
     display: none;
 }
 
 @media screen and (max-width: 991px) {
-    .title {
+    .header .title {
         display: none;
         font-size: 36px;
         padding: 15px;
     }
 
-    .title--mobile {
+    .header .title--mobile {
         display: block;
     }
 }
 
 @media screen and (max-width: 575px) {
-    .title {
+    .header .title {
         font-size: 30px;
         padding: 10px;
     }

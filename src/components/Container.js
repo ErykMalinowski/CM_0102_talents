@@ -2,65 +2,133 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 
 import styles from "./Container.module.css";
-import PlayersContext from "../contexts/PlayersContext";
+import { PlayersContext } from "../contexts/PlayersContext";
 
 export default function Container() {
-  const data = useContext(PlayersContext);
+  const { players, error, loading } = useContext(PlayersContext);
+  const data = players;
+  const defaultFilters = {
+    searchTerm: "",
+    ageValues: { minAge: 0, maxAge: 99 },
+    positions: ""
+  }
 
-  const [searchTerm, setSearchTerm] = useState("");
-  const [ageValues, setAgeValues] = useState({ minAge: 0, maxAge: 99 });
-  const [position, setPosition] = useState("");
+  const [filters, setFilters] = useState(defaultFilters);
 
-  const handleClick = () => {
-    setSearchTerm("");
+  // const [filteredData, setFilteredData] = useState([]);
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const [ageValues, setAgeValues] = useState({ minAge: 0, maxAge: 99 });
+  // const [position, setPosition] = useState("");
+
+  const handleReset = () => {
+    setFilters({...filters, searchTerm: "", ageValues: {minAge: 0, maxAge: 99}});
+    console.log(filters);
+    console.log(data)
+    // setSearchTerm("");
+    // setAgeValues({
+    //   ...ageValues,
+    //   minAge: 0,
+    //   maxAge: 99,
+    // });
   };
 
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    setFilters({...filters, searchTerm: event.target.value});
+    console.log(filters);
+    // setSearchTerm(event.target.value);
   };
 
   const handleAge = (event) => {
     const values = event.target.value.split("-");
-    setAgeValues({
-      ...ageValues,
-      minAge: parseFloat(values[0]),
-      maxAge: parseFloat(values[1]),
-    });
+    setFilters({...filters, ageValues: {minAge: parseFloat(values[0]), maxAge: parseFloat(values[1])}});
+    console.log(filters);
+    // setAgeValues({
+    //   ...ageValues,
+    //   minAge: parseFloat(values[0]),
+    //   maxAge: parseFloat(values[1]),
+    // });
   };
 
   const handlePosition = (event) => {
     const position = event.target.value;
 
     if (position === "GK") {
-      console.log("GK");
+      setFilters({...filters, positions: "GK"});
+      // setPosition("GK");
     } else if (position === "Def") {
-      console.log("SW/DR/DC/DL");
+      setFilters({...filters, positions: "SW/DR/DC/DL"});
+      // setPosition("SW/DR/DC/DL");
     } else if (position === "Mid") {
-      console.log("DML/DMC/DMR/ML/MC/MR/AML/AMC/AMR");
+      setFilters({...filters, positions: "DML/DMC/DMR/ML/MC/MR/AML/AMC/AMR"});
+      // setPosition("DML/DMC/DMR/ML/MC/MR/AML/AMC/AMR");
     } else if (position === "Att") {
-      console.log("FL/FC/FR/SC");
+      setFilters({...filters, positions: "FL/FC/FR/SC"});
+      // setPosition("FL/FC/FR/SC");
     }
+
+    console.log(filters);
   };
 
-  useEffect(() => {
-    console.log("use effect used");
-    // searchResults.filter(
-    //   (result) =>
-    //     result.age >= ageValues.minAge && result.age <= ageValues.maxAge
-    // );
-  }, [ageValues]);
+  // useEffect(() => {
+  //   console.log("use effect used");
+  //   console.log(ageValues);
 
-  const searchResults = useMemo(
-    () =>
-      searchTerm === ""
+  //   if(!data.loading) {
+  //     let temp = filteredData.players.filter(
+  //     (result) =>
+  //       result.age >= ageValues.minAge && result.age <= ageValues.maxAge
+  //   );
+  //   setFilteredData(temp);
+  //   }
+
+  // }, [ageValues]);
+
+  // useEffect(() => {
+  //   console.log("use effect used");
+  //   console.log(position);
+
+  //   if(!data.loading) {
+    
+  //   let temp = filteredData.players.filter(
+  //     (result) =>
+  //       position.includes(result.position)
+  //   );
+
+  //   setFilteredData(temp);
+  //   }
+
+  // }, [position]);
+
+  // useEffect(() => {
+  //   console.log("use effect used");
+  //   console.log(searchTerm);
+
+  //   if(!data.loading) {
+   
+  //   let temp = filteredData.players.filter(
+  //     (player) =>
+  //       player.name.toLowerCase().includes(searchTerm) ||
+  //       player.club.toLowerCase().includes(searchTerm) ||
+  //       player.nationality.toLowerCase().includes(searchTerm)
+  //   )
+
+  //   setFilteredData(temp);
+
+  //   }
+
+  // }, [searchTerm]);
+
+  const searchResults = useMemo(() => filters.searchTerm === "" && filters.ageValues.minAge === 0 && filters.ageValues.maxAge === 99 && filters.positions === ""
         ? data.players
         : data.players.filter(
             (player) =>
-              player.name.toLowerCase().includes(searchTerm) ||
-              player.club.toLowerCase().includes(searchTerm) ||
-              player.nationality.toLowerCase().includes(searchTerm)
+              (player.age >= filters.ageValues.minAge && player.age <= filters.ageValues.maxAge &&
+              filters.positions.includes(player.position)) &&
+              (player.name.toLowerCase().includes(filters.searchTerm) ||
+              player.club.toLowerCase().includes(filters.searchTerm) ||
+              player.nationality.toLowerCase().includes(filters.searchTerm))
           ),
-    [data, searchTerm]
+    [data, filters]
   );
 
   return (
@@ -68,9 +136,9 @@ export default function Container() {
       <div className={styles.searchbar}>
         <div className={styles.search}>
           <span>Search For</span>
-          <input type="text" value={searchTerm} onChange={handleChange} />
+          <input type="text" value={filters.searchTerm} onChange={handleChange} />
         </div>
-        <button className={styles.reset} onClick={handleClick}>
+        <button className={styles.reset} onClick={handleReset}>
           Reset
         </button>
       </div>

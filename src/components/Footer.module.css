@@ -1,0 +1,13 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--gray-btn);
+}
+
+.footer .summary {
+    color: var(--white);
+    text-align: center;
+    padding: 5px 0;
+}
