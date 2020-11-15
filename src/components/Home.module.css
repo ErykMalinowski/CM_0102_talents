@@ -10,9 +10,46 @@
     padding-top: 101px;
 }
 
+.content {
+    padding: 20px;
+}
+
+.content__title {
+    font-size: 28px;
+    text-align: center;
+    color: yellow;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.loading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 28px;
+    color: var(--white);
+}
+
+.players {
+    list-style-type: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.none {
+    width: 40%;
+    color: var(--white);
+    text-decoration: none;
+}
+
 @media screen and (max-width: 1199px) {
     .container {
         max-width: 960px;
+    }
+
+    .none {
+        width: 40%;
     }
 }
 
@@ -21,6 +58,10 @@
         max-width: 720px;
         padding-top: 71px;
     }
+
+    .none {
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -28,11 +69,24 @@
         background-position: 30% center;
         max-width: 540px;
     }
+
+    .none {
+        width: 75%;
+    }
 }
 
 @media screen and (max-width: 575px) {
     .container {
         max-width: 100%;
         padding-top: 55px;
+    }
+
+    .loading {
+        font-size: 24px;
+    }
+
+    .none {
+        width: 100%;
+        padding-right: 0;
     }
 }

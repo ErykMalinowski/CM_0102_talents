@@ -1,0 +1,124 @@
+.player {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 28px;
+    color: var(--white);
+}
+
+.player__name {
+    width: 40%;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.player__name:hover {
+    cursor: pointer;
+}
+
+.player__nationality {
+    width: 15%;
+    font-size: 18px;
+    color: var(--blue-cursor);
+}
+
+.player__club {
+    width: 20%;
+    font-size: 18px;
+    color: yellow;
+}
+
+.player__position {
+    width: 20%;
+    font-size: 18px;
+    color: var(--orange);
+}
+
+.player__age {
+    width: 5%;
+    font-size: 18px;
+    color: var(--white);
+}
+
+.player__name {
+    padding-right: 5px;
+}
+
+.player__nationality,
+.player__club,
+.player__position {
+    padding: 0 5px;
+}
+
+.player__age {
+    padding-left: 5px;
+}
+
+@media screen and (max-width: 1199px) {
+    .player__name {
+        width: 40%;
+    }
+
+    .player__nationality {
+        display: none;
+    }
+
+    .player__club {
+        width: 25%;
+    }
+
+    .player__position {
+        width: 25%;
+    }
+
+    .player__age {
+        width: 10%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .player__name {
+        width: 50%;
+    }
+
+    .player__club {
+        display: none;
+    }
+
+    .player__position {
+        width: 35%;
+    }
+
+    .player__age {
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .player__name {
+        width: 75%;
+    }
+
+    .player__position {
+        display: none;
+    }
+
+    .player__age {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .player {
+        font-size: 24px;
+    }
+
+    .player__name {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .player__age {
+        display: none;
+    }
+}
