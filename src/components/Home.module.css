@@ -14,6 +14,105 @@
     padding: 20px;
 }
 
+/* searchbar */
+.searchbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.searchbar span {
+    display: inline-block;
+    width: 200px;
+    font-size: 18px;
+    text-align: center;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 0;
+    margin-right: 2px;
+}
+
+.searchbar input {
+    font-family: "ErasDemi";
+    font-size: 18px;
+    color: var(--blue-cursor);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 50px;
+    border: none;
+}
+
+.searchbar input:hover {
+    cursor: pointer;
+}
+
+.searchbar input:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.searchbar .reset {
+    font-family: "ErasDemi";
+    font-size: 16px;
+    color: var(--white);
+    background-color: var(--gray-btn);
+    padding: 6.5px 50px;
+    border: none;
+}
+
+.searchbar .reset:hover {
+    cursor: pointer;
+}
+
+.searchbar .reset:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* filters */
+.filter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filter span {
+    display: inline-block;
+    width: 200px;
+    font-size: 18px;
+    text-align: center;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 0;
+    margin-right: 2px;
+}
+
+.filter input {
+    display: none;
+}
+
+.filter input:checked+label {
+    border: 2px solid yellow;
+}
+
+.filter label {
+    font-family: "ErasDemi";
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--white);
+    padding: 3px 8px;
+    margin-right: 2px;
+    border: 2px solid transparent;
+}
+
+.filter label:hover {
+    cursor: pointer;
+}
+
+/* talents list */
 .content__title {
     font-size: 28px;
     text-align: center;
@@ -23,7 +122,7 @@
     margin-bottom: 10px;
 }
 
-.loading {
+.loading, .none {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -37,19 +136,9 @@
     padding: 20px;
 }
 
-.none {
-    width: 40%;
-    color: var(--white);
-    text-decoration: none;
-}
-
 @media screen and (max-width: 1199px) {
     .container {
         max-width: 960px;
-    }
-
-    .none {
-        width: 40%;
     }
 }
 
@@ -57,10 +146,6 @@
     .container {
         max-width: 720px;
         padding-top: 71px;
-    }
-
-    .none {
-        width: 50%;
     }
 }
 
@@ -70,8 +155,38 @@
         max-width: 540px;
     }
 
-    .none {
-        width: 75%;
+    .searchbar {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .searchbar .search {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .searchbar span {
+        margin-bottom: 10px;
+    }
+
+    .searchbar input {
+        padding: 5px 25px;
+    }
+
+    .searchbar .reset {
+        order: -1;
+        margin-bottom: 10px;
+    }
+
+    .filter {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .filter span {
+        display: block;
+        margin-bottom: 15px;
     }
 }
 
@@ -81,12 +196,7 @@
         padding-top: 55px;
     }
 
-    .loading {
+    .loading, .none {
         font-size: 24px;
-    }
-
-    .none {
-        width: 100%;
-        padding-right: 0;
     }
 }
