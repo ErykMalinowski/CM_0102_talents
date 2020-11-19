@@ -34,6 +34,7 @@
 }
 
 .searchbar input {
+    width: 308px;
     font-family: "ErasDemi";
     font-size: 18px;
     color: var(--blue-cursor);
@@ -99,11 +100,13 @@
 }
 
 .filter label {
+    width: 60px;
     font-family: "ErasDemi";
     font-size: 18px;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
     color: var(--white);
-    padding: 3px 8px;
+    padding: 3px 0;
     margin-right: 2px;
     border: 2px solid transparent;
 }
@@ -158,7 +161,7 @@
     .searchbar {
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .searchbar .search {
@@ -167,11 +170,13 @@
     }
 
     .searchbar span {
+        width: 280px;
+        margin-right: 0;
         margin-bottom: 10px;
     }
 
     .searchbar input {
-        padding: 5px 25px;
+        width: 280px;
     }
 
     .searchbar .reset {
@@ -179,14 +184,26 @@
         margin-bottom: 10px;
     }
 
+    .filters {
+        text-align: center;
+    }
+
     .filter {
-        display: block;
+        display: inline-block;
+        justify-content: unset;
+        align-items: unset;
         margin-bottom: 15px;
     }
 
     .filter span {
         display: block;
+        width: 280px;
         margin-bottom: 15px;
+    }
+
+    .filter label {
+        display: inline-block;
+        width: 54px;
     }
 }
 

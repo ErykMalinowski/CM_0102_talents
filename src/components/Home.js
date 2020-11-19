@@ -69,7 +69,7 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="filters">
+        <div className={styles.filters}>
           <div className={styles.filter} onChange={handleAge}>
             <span>Age</span>
             <input type="radio" value="0-18" name="age" id="age1" defaultChecked={filters.ageValues.minAge === 0 && filters.ageValues.maxAge === 18} />
