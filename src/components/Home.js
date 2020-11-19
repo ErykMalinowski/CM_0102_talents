@@ -104,7 +104,11 @@ export default function Home() {
             <li className={styles.loading}>Loading...</li>
           ) : filteredPlayers.length > 0 ? (
             filteredPlayers.map((player) => (
+              <>
               <PlayerItem player={player} key={player.id} />
+              <PlayerItem player={player} key={player.id} />
+              <PlayerItem player={player} key={player.id} />
+              </>
             ))
           ) : (
             <li className={styles.none}>No players found</li>

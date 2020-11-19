@@ -5,6 +5,11 @@
     width: 100%;
 }
 
+.header a {
+    display: block;
+    text-decoration: none;
+}
+
 .header .title {
     font-family: "HandelGothic";
     font-size: 44px;
