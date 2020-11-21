@@ -3,6 +3,8 @@ import styles from "./Home.module.css";
 
 import { PlayersContext } from "../contexts/PlayersContext"
 import PlayerItem from "./PlayerItem";
+import Searchbar from "./Searchbar";
+import Filters from "./Filters";
 
 export default function Home() {
   const { players, loading } = useContext(PlayersContext);
@@ -59,56 +61,15 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.searchbar}>
-          <div className={styles.search}>
-            <span>Search For</span>
-            <input type="text" value={filters.searchTerm} onChange={handleChange} />
-          </div>
-          <button className={styles.reset} onClick={handleReset}>
-            Reset
-          </button>
-        </div>
-
-        <div className={styles.filters}>
-          <div className={styles.filter} onChange={handleAge}>
-            <span>Age</span>
-            <input type="radio" value="0-18" name="age" id="age1" defaultChecked={filters.ageValues.minAge === 0 && filters.ageValues.maxAge === 18} />
-            <label htmlFor="age1">0-18</label>
-            <input type="radio" value="19-25" name="age" id="age2" defaultChecked={filters.ageValues.minAge === 19 && filters.ageValues.maxAge === 25} />
-            <label htmlFor="age2">19-25</label>
-            <input type="radio" value="26-32" name="age" id="age3" defaultChecked={filters.ageValues.minAge === 26 && filters.ageValues.maxAge === 32} />
-            <label htmlFor="age3">26-32</label>
-            <input type="radio" value="33-99" name="age" id="age4" defaultChecked={filters.ageValues.minAge === 33 && filters.ageValues.maxAge === 99} />
-            <label htmlFor="age4">33+</label>
-            <input type="radio" value="0-99" name="age" id="age5" defaultChecked={filters.ageValues.minAge === 0 && filters.ageValues.maxAge === 99} />
-            <label htmlFor="age5">ALL</label>
-          </div>
-          <div className={styles.filter} onChange={handlePosition}>
-            <span>Position</span>
-            <input type="radio" value="GK" name="position" id="position1" defaultChecked={filters.positions === "GK"} />
-            <label htmlFor="position1">GK</label>
-            <input type="radio" value="Def" name="position" id="position2" defaultChecked={filters.positions === "SW/DR/DC/DL"} />
-            <label htmlFor="position2">Def</label>
-            <input type="radio" value="Mid" name="position" id="position3" defaultChecked={filters.positions === "DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC"} />
-            <label htmlFor="position3">Mid</label>
-            <input type="radio" value="Att" name="position" id="position4" defaultChecked={filters.positions === "FL/FC/FR/SC"} />
-            <label htmlFor="position4">Att</label>
-            <input type="radio" value="All" name="position" id="position5" defaultChecked={filters.positions === "GK/SW/DR/DC/DL/DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC/FL/FC/FR/SC"} />
-            <label htmlFor="position5">ALL</label>
-          </div>
-        </div>
-
+        <Searchbar filters={filters} handleChange={handleChange} handleReset={handleReset} />
+        <Filters filters={filters} handleAge={handleAge} handlePosition={handlePosition} />
         <h2 className={styles.content__title}>Players</h2>
         <ul className={styles.players}>
           {loading ? (
             <li className={styles.loading}>Loading...</li>
           ) : filteredPlayers.length > 0 ? (
             filteredPlayers.map((player) => (
-              <>
               <PlayerItem player={player} key={player.id} />
-              <PlayerItem player={player} key={player.id} />
-              <PlayerItem player={player} key={player.id} />
-              </>
             ))
           ) : (
             <li className={styles.none}>No players found</li>
