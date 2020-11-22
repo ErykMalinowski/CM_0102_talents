@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+import styles from "./NoMatch.module.css";
 
-function NoMatch() {
+import Title from './Title';
+
+export default function NoMatch() {
     return (
-        <div>
-            <h1>error 404</h1>
-        </div>
+        <main className="container">
+            <div className="content">
+                <Title title="Error 404" />
+                <p className={styles.error}>Page not found.</p>
+            </div>
+        </main>
     )
 }
-
-export default NoMatch;

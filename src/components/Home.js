@@ -5,6 +5,7 @@ import { PlayersContext } from "../contexts/PlayersContext"
 import PlayerItem from "./PlayerItem";
 import Searchbar from "./Searchbar";
 import Filters from "./Filters";
+import Title from "./Title";
 
 export default function Home() {
   const { players, loading } = useContext(PlayersContext);
@@ -59,11 +60,11 @@ export default function Home() {
   );
 
   return (
-    <main className={styles.container}>
-      <div className={styles.content}>
+    <main className="container">
+      <div className="content">
         <Searchbar filters={filters} handleChange={handleChange} handleReset={handleReset} />
         <Filters filters={filters} handleAge={handleAge} handlePosition={handlePosition} />
-        <h2 className={styles.content__title}>Players</h2>
+        <Title title="Players" />
         <ul className={styles.players}>
           {loading ? (
             <li className={styles.loading}>Loading...</li>

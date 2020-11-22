@@ -33,3 +33,46 @@ body {
   background-image: linear-gradient(var(--blue-gradient), black);
   overflow-x: hidden;
 }
+
+.container {
+  background-image: url("./images/background.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 1140px;
+  min-height: calc(100vh - 28px);
+  margin: 0 auto;
+  padding-top: 101px;
+}
+
+.content {
+  padding: 20px;
+}
+
+@media screen and (max-width: 1199px) {
+  .container {
+      max-width: 960px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+      max-width: 720px;
+      padding-top: 71px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+      background-position: 30% center;
+      max-width: 540px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+      max-width: 100%;
+      padding-top: 55px;
+  }
+}
