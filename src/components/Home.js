@@ -42,7 +42,7 @@ export default function Home() {
   };
 
   const handleReset = () => {
-    setFilters({...filters, searchTerm: "", ageValues: {minAge: 0, maxAge: 99}, positions: "GK/SW/DR/DC/DL/DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC/FL/FC/FR/SC"});
+    setFilters({...defaultFilters});
   }
 
   const filteredPlayers = useMemo(() => filters.searchTerm === "" && filters.ageValues.minAge === 0 && filters.ageValues.maxAge === 99 && filters.positions === "GK/SW/DR/DC/DL/DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC/FL/FC/FR/SC"
