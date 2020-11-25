@@ -12,9 +12,9 @@ export default function Home() {
   const defaultFilters = {
     searchTerm: "",
     ageValues: { minAge: 0, maxAge: 99 },
-    positions: "GK/SW/DR/DC/DL/DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC/FL/FC/FR/SC"
+    positions: ['GK','SW','DR','DC','DL','DML','DMC','DMR','ML','MC','MR','AMR','AML','AMC','FL','FC','FR','SC']
   }
-  
+
   const [filters, setFilters] = useState(defaultFilters);
 
   const handleChange = (e) => {
@@ -30,28 +30,28 @@ export default function Home() {
     const position = e.target.value;
 
     if (position === "GK") {
-      setFilters({...filters, positions: "GK"});
+      setFilters({...filters, positions: ['GK']})
     } else if (position === "Def") {
-      setFilters({...filters, positions: "SW/DR/DC/DL"});
+      setFilters({...filters, positions: ['SW','DR','DC','DL']})
     } else if (position === "Mid") {
-      setFilters({...filters, positions: "DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC"});
+      setFilters({...filters, positions: ['DML','DMC','DMR','ML','MC','MR','AMR','AML','AMC']})
     } else if (position === "Att") {
-      setFilters({...filters, positions: "FL/FC/FR/SC"});
+      setFilters({...filters, positions: ['FL','FC','FR','SC']})
     } else if (position === "All") {
-      setFilters({...filters, positions: "GK/SW/DR/DC/DL/DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC/FL/FC/FR/SC"});
+      setFilters({...filters, positions: ['GK','SW','DR','DC','DL','DML','DMC','DMR','ML','MC','MR','AMR','AML','AMC','FL','FC','FR','SC']})
     }
   };
 
   const handleReset = () => {
     setFilters({...defaultFilters});
   }
-
-  const filteredPlayers = useMemo(() => filters.searchTerm === "" && filters.ageValues.minAge === 0 && filters.ageValues.maxAge === 99 && filters.positions === "GK/SW/DR/DC/DL/DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC/FL/FC/FR/SC"
+  
+  const filteredPlayers = useMemo(() => filters.searchTerm === "" && filters.ageValues.minAge === 0 && filters.ageValues.maxAge === 99 && filters.positions === ['GK','SW','DR','DC','DL','DML','DMC','DMR','ML','MC','MR','AMR','AML','AMC','FL','FC','FR','SC']
         ? players
         : players.filter(
             (player) =>
             (player.age >= filters.ageValues.minAge && player.age <= filters.ageValues.maxAge) &&
-            (filters.positions.includes(player.position)) &&
+            (player.position.split('/').some(pos => filters.positions.includes(pos))) &&
               (player.name.toLowerCase().includes(filters.searchTerm) ||
               player.club.toLowerCase().includes(filters.searchTerm) ||
               player.nationality.toLowerCase().includes(filters.searchTerm))

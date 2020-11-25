@@ -21,15 +21,15 @@ export default function Filters(props) {
           </div>
           <div className={styles.filter}>
             <span>Position</span>
-            <input type="radio" value="GK" name="position" id="position1" checked={filters.positions === "GK"} onChange={handlePosition} />
+            <input type="radio" value="GK" name="position" id="position1" checked={JSON.stringify(filters.positions) === JSON.stringify(['GK'])} onChange={handlePosition} />
             <label htmlFor="position1">GK</label>
-            <input type="radio" value="Def" name="position" id="position2" checked={filters.positions === "SW/DR/DC/DL"} onChange={handlePosition} />
+            <input type="radio" value="Def" name="position" id="position2" checked={JSON.stringify(filters.positions) === JSON.stringify(['SW','DR','DC','DL'])} onChange={handlePosition} />
             <label htmlFor="position2">Def</label>
-            <input type="radio" value="Mid" name="position" id="position3" checked={filters.positions === "DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC"} onChange={handlePosition} />
+            <input type="radio" value="Mid" name="position" id="position3" checked={JSON.stringify(filters.positions) === JSON.stringify(['DML','DMC','DMR','ML','MC','MR','AMR','AML','AMC'])} onChange={handlePosition} />
             <label htmlFor="position3">Mid</label>
-            <input type="radio" value="Att" name="position" id="position4" checked={filters.positions === "FL/FC/FR/SC"} onChange={handlePosition} />
+            <input type="radio" value="Att" name="position" id="position4" checked={JSON.stringify(filters.positions) === JSON.stringify(['FL','FC','FR','SC'])} onChange={handlePosition} />
             <label htmlFor="position4">Att</label>
-            <input type="radio" value="All" name="position" id="position5" checked={filters.positions === "GK/SW/DR/DC/DL/DML/DMC/DMR/ML/MC/MR/AMR/AML/AMC/FL/FC/FR/SC"} onChange={handlePosition} />
+            <input type="radio" value="All" name="position" id="position5" checked={JSON.stringify(filters.positions) === JSON.stringify(['GK','SW','DR','DC','DL','DML','DMC','DMR','ML','MC','MR','AMR','AML','AMC','FL','FC','FR','SC'])} onChange={handlePosition} />
             <label htmlFor="position5">ALL</label>
           </div>
         </div>
