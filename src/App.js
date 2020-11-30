@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Player from "./components/Player";
-// import Form from "./components/Form";
+import Form from "./components/Form";
 import NoMatch from "./components/NoMatch";
 
 import PlayersContextProvider from "./contexts/PlayersContext";
@@ -20,10 +20,10 @@ function App() {
               <Home />
             </Route>
             <Route path="/player/add">
-              {/* <Form /> */}
+              <Form />
             </Route>
-            <Route path="/player/:playerId">
-              <Player />
+            <Route path="/player/:playerId" render={(props) => 
+              <Player {...props} />}>
             </Route>
             <Route>
               <NoMatch />

@@ -1,23 +1,3 @@
-.form {
-    background-image: url("../images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    max-width: 960px;
-    height: 100vh;
-    color: white;
-    padding: 20px;
-    margin: 0 auto;
-}
-
-.form__title {
-    font-size: 28px;
-    text-align: center;
-    color: yellow;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
 .form label {
     display: block;
     font-size: 20px;
@@ -57,20 +37,10 @@
     padding: 10px 0;
 }
 
-@media screen and (max-width: 991px) {
-    .form {
-        max-width: 720px;
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .form {
-        max-width: 540px;
-    }
-}
-
-@media screen and (max-width: 575px) {
-    .form {
-        max-width: 100%;
+@media screen and (max-width: 450px) {
+    .form label {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
 }

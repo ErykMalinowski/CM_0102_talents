@@ -17,7 +17,7 @@
 :root {
   --blue-cursor: rgb(132, 255, 255);
   --blue-gradient: rgb(0, 0, 123);
-  --gray-btn: rgb(132, 130, 132);
+  --gray-btn: #848284;
   --green-dark: rgb(0, 56, 0);
   --green-light: rgb(0, 65, 0);
   --green-text: rgb(0, 195, 0);
@@ -44,6 +44,7 @@ body {
   min-height: calc(100vh - 28px);
   margin: 0 auto;
   padding-top: 101px;
+  padding-bottom: 28px;
 }
 
 .content {

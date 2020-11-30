@@ -13,7 +13,6 @@ const PlayersContextProvider = (props) => {
 
         const unsubscribe = db.collection('talents').orderBy("name")
           .onSnapshot(snapshot => {
-            // console.log(snapshot)
             if (snapshot.size) {
               const temp = []
               snapshot.forEach(doc => temp.push({ id: doc.id, ...doc.data() }))
