@@ -9,10 +9,6 @@
     height: auto;
 }
 
-.img .loader {
-    opacity: .1;
-}
-
 .btn {
     display: inline-block;
     font-family: "ErasDemi";

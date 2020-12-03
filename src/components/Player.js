@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Title from "./Title";
 import styles from "./Player.module.css";
 
-import loader from '../images/loader.gif';
+import loader from '../images/placeholder.png';
 
 import {db} from "../firebase/firebase";
 
@@ -25,7 +25,7 @@ export default function Player(props) {
       <div className="content">
         <Title title="Player Details" />
         <div className={styles.img}>
-          {url ? <img src={url} alt="" /> : <img src={loader} className={styles.loader} alt="" /> }
+          {url ? <img src={url} alt="" /> : <img src={loader} alt="" /> }
         </div>
         <Link to="/" className={styles.btn}>Back</Link>
       </div>
