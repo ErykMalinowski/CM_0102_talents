@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import styles from "./Form.module.css";
+import token from "../token.json"
 
-import Title from './Title';
+import { Title } from './Title';
 
-import {db, storage} from "../firebase/firebase";
+import { db, storage } from "../firebase/firebase";
 
-export default function Form() {
+export const Form = () => {
+  const formUrl = window.location.href.toString();
+
   const [name, setName] = useState("");
   const [club, setClub] = useState("");
   const [age, setAge] = useState("");
@@ -54,73 +58,72 @@ export default function Form() {
   };
 
   return (
-    <main className="container">
-      <div className="content">
-        <Title title="Add Player" />
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <label>
-          Name:
-            <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            />
-          </label>
-          <label>
-          Club:
-            <input
-            type="text"
-            name="club"
-            value={club}
-            onChange={(e) => setClub(e.target.value)}
-            required
-            />
-          </label>
-          <label>
-          Age:
-            <input
-            type="number"
-            name="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            required
-            />
-          </label>
-          <label>
-          Nationality:
-            <input
-            type="text"
-            name="nationality"
-            value={nationality}
-            onChange={(e) => setNationality(e.target.value)}
-            required
-            />
-          </label>
-          <label>
-          Position:
-            <input
-            type="text"
-            name="position"
-            value={position}
-            onChange={(e) => setPosition(e.target.value)}
-            required
-            />
-          </label>
-          <label>
-          Image:
-            <input
-            type="file"
-            onChange={(e) => setFile(e.target.files[0])}
-            required
-            />
-          </label>
-          <input type="submit" value="Add Player" />
-        </form>
-        <img src={url} alt="" />
-      </div>
-    </main>
-    
+    formUrl.includes(token.content) ?
+    (
+      <main className="container">
+        <div className="content">
+          <Title title="Add Player" />
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <label>Name:
+              <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              />
+            </label>
+            <label>Club:
+              <input
+              type="text"
+              name="club"
+              value={club}
+              onChange={(e) => setClub(e.target.value)}
+              required
+              />
+            </label>
+            <label>Age:
+              <input
+              type="number"
+              name="age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+              required
+              />
+            </label>
+            <label>Nationality:
+              <input
+              type="text"
+              name="nationality"
+              value={nationality}
+              onChange={(e) => setNationality(e.target.value)}
+              required
+              />
+            </label>
+            <label>Position:
+              <input
+              type="text"
+              name="position"
+              value={position}
+              onChange={(e) => setPosition(e.target.value)}
+              required
+              />
+            </label>
+            <label>Image:
+              <input
+              type="file"
+              onChange={(e) => setFile(e.target.files[0])}
+              required
+              />
+            </label>
+            <input type="submit" value="Add Player" />
+          </form>
+          <img src={url} alt="" />
+        </div>
+      </main>
+    ) :
+    (
+      <Redirect to="/404" />
+    )
   );
 }

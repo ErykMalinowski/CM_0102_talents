@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "./NoMatch.module.css";
 
-import Title from './Title';
+import { Title } from './Title';
 
-export default function NoMatch() {
+export const NoMatch = () => {
     return (
         <main className="container">
             <div className="content">

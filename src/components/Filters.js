@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./Filters.module.css";
 
-export default function Filters(props) {
+export const Filters = (props) => {
     const { filters, handleAge, handlePosition } = props;
     
     return (

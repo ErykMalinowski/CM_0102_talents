@@ -2,12 +2,12 @@ import React, { useContext, useMemo, useState } from "react";
 import styles from "./Home.module.css";
 
 import { PlayersContext } from "../contexts/PlayersContext"
-import PlayerItem from "./PlayerItem";
-import Searchbar from "./Searchbar";
-import Filters from "./Filters";
-import Title from "./Title";
+import { PlayerItem } from "./PlayerItem";
+import { Searchbar } from "./Searchbar";
+import { Filters } from "./Filters";
+import { Title } from "./Title";
 
-export default function Home() {
+export const Home = () => {
   const { players, loading } = useContext(PlayersContext);
   const defaultFilters = {
     searchTerm: "",

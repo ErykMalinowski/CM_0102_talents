@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import Title from "./Title";
+import { Title } from "./Title";
 import styles from "./Player.module.css";
 
 import loader from '../images/placeholder.png';
 
-import {db} from "../firebase/firebase";
+import { db } from "../firebase/firebase";
 
-export default function Player(props) {
+export const Player = (props) => {
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
   const playerId = props.match.params.playerId;
