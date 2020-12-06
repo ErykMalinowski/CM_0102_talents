@@ -11,6 +11,8 @@ import NoMatch from "./components/NoMatch";
 import PlayersContextProvider from "./contexts/PlayersContext";
 
 function App() {
+  const token = process.env.REACT_APP_FORM_TOKEN;
+
   return (
       <Router>
         <PlayersContextProvider>
@@ -19,8 +21,8 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/player/add">
-              <Form />
+            <Route exact path="/player/add">
+              {token ? <Form /> : <Redirect to="/404" />}
             </Route>
             <Route path="/player/:playerId" render={(props) => 
               <Player {...props} />}>

@@ -27,7 +27,7 @@ export default function Player(props) {
       <div className="content">
         <Title title="Player Details" />
         <div className={styles.img}>
-          {url ? <img src={url} alt="" /> : (error ? <Redirect to="/not-found" /> : <img src={loader} alt="" />) }
+          {url ? <img src={url} alt="" /> : (error ? <Redirect to="/404" /> : <img src={loader} alt="" />) }
         </div>
         <Link to="/" className={styles.btn}>Back</Link>
       </div>
