@@ -13,6 +13,8 @@ import PlayersContextProvider from "./contexts/PlayersContext";
 function App() {
   const token = process.env.REACT_APP_FORM_TOKEN;
 
+  // nie token powinieneś sprawdzać w formie
+  //czy kontekts jest na pewno potrzebny wszystkim routom?
   return (
       <Router>
         <PlayersContextProvider>

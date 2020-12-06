@@ -1,9 +1,13 @@
+// Proponuje w kazdy komponent trzymać w osobnym folderze np. folder Filters, a w nim index.js z tym komponentem i plik css
+
 import React from 'react';
 import styles from "./Filters.module.css";
 
 export default function Filters(props) {
     const { filters, handleAge, handlePosition } = props;
     
+    // propouję stworzyć tablcę z obiektami, w której będziesz miał wszystkie dane potrzebne do stworzenia inputów - wtedy się po niej przeiterować i za pomocą `map`
+    // wygenerować komponenty, keep it DRY ;)
     return (
         <div className={styles.filters}>
           <div className={styles.filter}>

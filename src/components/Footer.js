@@ -8,3 +8,11 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+// komponenty funkcyjne mozna zapisac tez:
+// export const Footer = () =>  (
+//    <footer className={styles.footer}>
+//      <p className={styles.summary}>Created by Eryk Malinowski</p>
+//    </footer>
+//  );

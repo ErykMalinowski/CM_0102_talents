@@ -8,6 +8,7 @@ import loader from '../images/placeholder.png';
 import {db} from "../firebase/firebase";
 
 export default function Player(props) {
+  // zmianna url mogłaby mieć bardziej explicit/self-describing nazwe np imagePath
   const [url, setUrl] = useState("");
   const [error, setError] = useState(false);
   const playerId = props.match.params.playerId;
@@ -22,6 +23,8 @@ export default function Player(props) {
     fetchData()
   }, [playerId])
 
+  //dodaj alt
+  //stworzyłabym osobny komponent na loader
   return (
     <main className="container">
       <div className="content">

@@ -8,7 +8,7 @@ export default function PlayerItem(props) {
     return (
         <li className={styles.player}>
             <Link to={`/player/${player.id}`} className={styles.player__name}>
-            {player.name}
+                {player.name}
             </Link>
             <div className={styles.player__nationality}>{player.nationality}</div>
             <div className={styles.player__club}>{player.club}</div>

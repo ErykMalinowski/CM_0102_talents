@@ -5,7 +5,15 @@ import Title from './Title';
 
 import {db, storage} from "../firebase/firebase";
 
+
+// w tym kompoenencie sprawdzasz, czy w urlu jest twój poprawny token, jesli tak to zrwacasz form, jesli nie, zwracasz redirect do 404
 export default function Form() {
+
+  // trzymałaym te wszystkie dane w jednym obiekcie, zamiast ustawiać state dla kazdego propa osobno, 
+  // do usatwiania wartości storzyłabym wtedy funkcje, która będzie w argumentach przyjomować nazwę klucza i wartość, którą chcesz dodać
+  // zmienić w obiekcie
+  // wtedy w newTalentRef.set() przekazesz obiekt i czyszczenie stanu jakby przyjemniejsze, mniej kodu :)
+
   const [name, setName] = useState("");
   const [club, setClub] = useState("");
   const [age, setAge] = useState("");
@@ -17,9 +25,11 @@ export default function Form() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // nie mieszalalbym const/let z varami chyba, ze masz ku temu konkretny powod
     var newTalentRef = db.collection("talents").doc();
     const uploadTask = storage.ref(`/images/${newTalentRef.id}`).put(file);
 
+    // czy jesteś pewnien, ze chcesz robić parseFloat na age?
     uploadTask.on("state_changed", console.log, console.error, () => {
       storage
         .ref("images")
@@ -53,6 +63,7 @@ export default function Form() {
     setURL("");
   };
 
+  // w pormie potencjał na wykorzsytanie iteratora, zamiast pisania z ręki 7 niemal takich samych pól
   return (
     <main className="container">
       <div className="content">
