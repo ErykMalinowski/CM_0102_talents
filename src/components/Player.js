@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Title from "./Title";
 import styles from "./Player.module.css";
 
@@ -9,12 +9,14 @@ import {db} from "../firebase/firebase";
 
 export default function Player(props) {
   const [url, setUrl] = useState("");
+  const [error, setError] = useState(false);
   const playerId = props.match.params.playerId;
 
   useEffect(() => {
     const fetchData = async() => {
       const player = await db.collection('talents').doc(playerId).get();
-      setUrl(player.data().image);
+      
+      player.data() ? setUrl(player.data().image) : setError(true);
     }
 
     fetchData()
@@ -25,7 +27,7 @@ export default function Player(props) {
       <div className="content">
         <Title title="Player Details" />
         <div className={styles.img}>
-          {url ? <img src={url} alt="" /> : <img src={loader} alt="" /> }
+          {url ? <img src={url} alt="" /> : (error ? <Redirect to="/not-found" /> : <img src={loader} alt="" />) }
         </div>
         <Link to="/" className={styles.btn}>Back</Link>
       </div>
