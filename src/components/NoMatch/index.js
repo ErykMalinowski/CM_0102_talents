@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from "./NoMatch.module.css";
+import styles from "./style.module.css";
 
-import { Title } from './Title';
+import { Title } from '../Title/index';
 
 export const NoMatch = () => {
     return (

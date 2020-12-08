@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { Title } from "./Title";
-import styles from "./Player.module.css";
+import { Title } from "../Title/index";
+import styles from "./style.module.css";
 
-import loader from '../images/placeholder.png';
+import loader from '../../images/placeholder.png';
 
-import { db } from "../firebase/firebase";
+import { db } from "../../firebase/firebase";
 
 export const Player = (props) => {
   const [url, setUrl] = useState("");

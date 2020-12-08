@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import styles from "./Form.module.css";
-import token from "../token.json"
+import styles from "./style.module.css";
+import token from "../../token.json"
 
-import { Title } from './Title';
+import { Title } from '../Title/index';
 
-import { db, storage } from "../firebase/firebase";
+import { db, storage } from "../../firebase/firebase";
 
 export const Form = () => {
   const formUrl = window.location.href.toString();

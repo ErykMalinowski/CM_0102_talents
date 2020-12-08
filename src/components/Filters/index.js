@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./Filters.module.css";
+import styles from "./style.module.css";
 
 export const Filters = (props) => {
     const { filters, handleAge, handlePosition } = props;

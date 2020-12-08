@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import { Header } from "./components/Header";
-import { Home } from "./components/Home";
-import { Footer } from "./components/Footer";
-import { Player } from "./components/Player";
-import { Form } from "./components/Form";
-import { NoMatch } from "./components/NoMatch";
+import { Header } from "./components/Header/index";
+import { Home } from "./components/Home/index";
+import { Footer } from "./components/Footer/index";
+import { Player } from "./components/Player/index";
+import { Form } from "./components/Form/index";
+import { NoMatch } from "./components/NoMatch/index";
 
 import PlayersContextProvider from "./contexts/PlayersContext";
 

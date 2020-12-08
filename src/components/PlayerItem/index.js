@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import styles from "./PlayerItem.module.css";
+import styles from "./style.module.css";
 
 export const PlayerItem = (props) => {
     const { player } = props;

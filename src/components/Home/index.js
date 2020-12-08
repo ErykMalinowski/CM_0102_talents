@@ -1,11 +1,11 @@
 import React, { useContext, useMemo, useState } from "react";
-import styles from "./Home.module.css";
+import styles from "./style.module.css";
 
-import { PlayersContext } from "../contexts/PlayersContext"
-import { PlayerItem } from "./PlayerItem";
-import { Searchbar } from "./Searchbar";
-import { Filters } from "./Filters";
-import { Title } from "./Title";
+import { PlayersContext } from "../../contexts/PlayersContext"
+import { PlayerItem } from "../PlayerItem/index";
+import { Searchbar } from "../Searchbar/index";
+import { Filters } from "../Filters/index";
+import { Title } from "../Title/index";
 
 export const Home = () => {
   const { players, loading } = useContext(PlayersContext);

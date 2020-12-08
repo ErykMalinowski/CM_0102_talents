@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./Searchbar.module.css";
+import styles from "./style.module.css";
 
 export const Searchbar = (props) => {
     const { filters, handleChange, handleReset } = props;
