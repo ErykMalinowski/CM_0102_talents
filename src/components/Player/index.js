@@ -3,12 +3,14 @@ import { Link, Redirect } from "react-router-dom";
 import { Title } from "../Title/index";
 import styles from "./style.module.css";
 
+import { Loader } from "../Loader/index"
+
 import loader from '../../images/placeholder.png';
 
 import { db } from "../../firebase/firebase";
 
 export const Player = (props) => {
-  const [url, setUrl] = useState("");
+  const [imagePath, setImagePath] = useState("");
   const [error, setError] = useState(false);
   const playerId = props.match.params.playerId;
 
@@ -16,7 +18,7 @@ export const Player = (props) => {
     const fetchData = async() => {
       const player = await db.collection('talents').doc(playerId).get();
       
-      player.data() ? setUrl(player.data().image) : setError(true);
+      player.data() ? setImagePath(player.data().image) : setError(true);
     }
 
     fetchData()
@@ -27,7 +29,7 @@ export const Player = (props) => {
       <div className="content">
         <Title title="Player Details" />
         <div className={styles.img}>
-          {url ? <img src={url} alt="" /> : (error ? <Redirect to="/404" /> : <img src={loader} alt="" />) }
+          {imagePath ? <Loader src={imagePath} alt="player profile" /> : (error ? <Redirect to="/404" /> : <Loader src={loader} alt="loader" />) }
         </div>
         <Link to="/" className={styles.btn}>Back</Link>
       </div>
