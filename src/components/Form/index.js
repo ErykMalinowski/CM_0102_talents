@@ -10,21 +10,26 @@ import { db, storage } from "../../firebase/firebase";
 export const Form = () => {
   const formUrl = window.location.href.toString();
 
-  const [name, setName] = useState("");
-  const [club, setClub] = useState("");
-  const [age, setAge] = useState("");
-  const [nationality, setNationality] = useState("");
-  const [position, setPosition] = useState("");
+  const defaultPlayer = {
+    name: "",
+    club: "",
+    age: "",
+    nationality: "",
+    position: "",
+    image: ""
+  };
+
+  const [player, setPlayer] = useState(defaultPlayer)
   const [file, setFile] = useState(null);
   const [url, setURL] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    var newTalentRef = db.collection("talents").doc();
+    const newTalentRef = db.collection("talents").doc();
     const uploadTask = storage.ref(`/images/${newTalentRef.id}`).put(file);
 
-    uploadTask.on("state_changed", console.log, console.error, () => {
+    uploadTask.on("state_changed", null, null, () => {
       storage
         .ref("images")
         .child(newTalentRef.id)
@@ -33,11 +38,11 @@ export const Form = () => {
           setFile(null);
           setURL(url);
           newTalentRef.set({
-            name: name,
-            club: club,
-            age: parseFloat(age),
-            nationality: nationality,
-            position: position,
+            name: player.name,
+            club: player.club,
+            age: player.age,
+            nationality: player.nationality,
+            position: player.position,
             image: url
             })
             .then(function () {
@@ -49,11 +54,7 @@ export const Form = () => {
         })
     });
 
-    setName("");
-    setClub("");
-    setAge("");
-    setNationality("");
-    setPosition("");
+    setPlayer({...defaultPlayer});
     setURL("");
   };
 
@@ -64,58 +65,40 @@ export const Form = () => {
         <div className="content">
           <Title title="Add Player" />
           <form onSubmit={handleSubmit} className={styles.form}>
-            <label>Name:
-              <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              />
-            </label>
-            <label>Club:
-              <input
-              type="text"
-              name="club"
-              value={club}
-              onChange={(e) => setClub(e.target.value)}
-              required
-              />
-            </label>
-            <label>Age:
-              <input
-              type="number"
-              name="age"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              required
-              />
-            </label>
-            <label>Nationality:
-              <input
-              type="text"
-              name="nationality"
-              value={nationality}
-              onChange={(e) => setNationality(e.target.value)}
-              required
-              />
-            </label>
-            <label>Position:
-              <input
-              type="text"
-              name="position"
-              value={position}
-              onChange={(e) => setPosition(e.target.value)}
-              required
-              />
-            </label>
-            <label>Image:
-              <input
-              type="file"
-              onChange={(e) => setFile(e.target.files[0])}
-              required
-              />
-            </label>
+
+            {Object.keys(player).map((key, i) => (
+              key === "image" ? (
+                <label key={i}>{key}:
+                  <input
+                  type="file"
+                  onChange={(e) => setFile(e.target.files[0])}
+                  required
+                  />
+                </label>
+              ) : (
+              <label key={i}>{key}:
+                { key === "age" ? (
+                    <input
+                    type="text"
+                    name={key}
+                    value={player[key]}
+                    onChange={(e) => setPlayer({...player, [key]: parseInt(e.target.value)})}
+                    required
+                    />
+                  ) : (
+                    <input
+                    type="text"
+                    name={key}
+                    value={player[key]}
+                    onChange={(e) => setPlayer({...player, [key]: e.target.value})}
+                    required
+                    />
+                  )
+                }
+              </label>
+              )
+            ))}
+            
             <input type="submit" value="Add Player" />
           </form>
           <img src={url} alt="" />
