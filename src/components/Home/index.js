@@ -18,7 +18,7 @@ export const Home = () => {
   const [filters, setFilters] = useState(defaultFilters);
 
   const handleChange = (e) => {
-    setFilters({...filters, searchTerm: e.target.value});
+    setFilters({...filters, searchTerm: e.target.value.trim()});
   }
 
   const handleAge = (e) => {

@@ -16,7 +16,7 @@
 
 :root {
   --blue-cursor: rgb(132, 255, 255);
-  --blue-gradient: rgb(0, 0, 123);
+  --blue-bg: rgb(0, 0, 60);
   --gray-btn: #848284;
   --green-dark: rgb(0, 56, 0);
   --green-light: rgb(0, 65, 0);
@@ -25,12 +25,16 @@
   --white: rgb(231, 227, 231);
 }
 
+html {
+  overflow-y: scroll;
+}
+
 body {
   display: flex;
   flex-direction: column;
   font-family: "ErasDemi", Arial, Helvetica, sans-serif;
   min-height: 100vh;
-  background-image: linear-gradient(var(--blue-gradient), black);
+  background-color: var(--blue-bg);
   overflow-x: hidden;
 }
 

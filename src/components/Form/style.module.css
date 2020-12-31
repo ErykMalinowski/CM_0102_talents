@@ -12,11 +12,12 @@
 }
 
 .form input {
+    width: 100%;
     font-family: "ErasDemi";
     font-size: 20px;
     color: var(--blue-cursor);
     background-color: transparent;
-    padding: 0 10px;
+    padding: 10px 0;
     border: none;
 }
 

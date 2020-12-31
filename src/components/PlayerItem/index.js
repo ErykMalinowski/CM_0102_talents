@@ -7,7 +7,7 @@ export const PlayerItem = (props) => {
 
     return (
         <li className={styles.player}>
-            <Link to={`/player/${player.id}`} className={styles.player__name}>{ player.name }</Link>
+            <Link to={`/player/${player.id}`} className={styles.player__name} target="_blank">{ player.name }</Link>
             <div className={styles.player__nationality}>{ player.nationality }</div>
             <div className={styles.player__club}>{ player.club }</div>
             <div className={styles.player__position}>{ player.position }</div>
